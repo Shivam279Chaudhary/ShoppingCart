@@ -21,10 +21,10 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Cart {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int cartId;
 	private int customerId;
-	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cart", orphanRemoval=true, cascade = CascadeType.ALL)
 	List<CartItem> cartItems;
 
 	public void placeOrder(int cartId) {

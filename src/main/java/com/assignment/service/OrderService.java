@@ -40,7 +40,6 @@ public class OrderService {
 		order.setCustomerId(cart.getCustomerId());
 		Date date = new Date();
 		order.setDateOfOrder(date);
-//		order.setOrderId(0);
 		order.setTotalAmount(cart.totalAmount());
 		Order insertedOrder = orderRepository.save(order);
 		cart.getCartItems().stream().forEach(item -> {
@@ -48,25 +47,16 @@ public class OrderService {
 //			cartItemService.deleteByCartItemId(item.getCartItemId());
 //			System.out.println("passing cartItem ID : " + item.getCartItemId());
 		});
-//		cart.getCartItems().stream().forEach(i -> log.info("cartItem original : {}", i.toString()));
 //		cart.getCartItems().stream().forEach(item -> {
-//			log.info("cartItem being deleted : {}", item.toString());
-//			cartItemService.deleteCartItem(item);
+//			cartItemService.deleteByCartItemId(item.getCartItemId());
+//			log.info("cartItem with ID :{} deleted",item.getCartItemId());
 //		});
-//		List<CartItem> list = cart.getCartItems();
-//		for (int i = 0; i < list.size(); ++i) {
-//			cartItemRepository.delete(list.get(i));
-//			System.out.println( list.get(i).getCartItemId());
-//			cartItemRepository.deleteByCartItemId(list.get(i).getCartItemId());
-//			cartItemService.deleteByCartItemId(list.get(i).getCartItemId());
-//			cartItem(cartItemRepository.findById(list.get(i).getCartItemId()).get() )
-//		}
+
 		Cart newCart = new Cart();
 		newCart.setCartId(cart.getCartId());
 		newCart.setCustomerId(cart.getCustomerId());
 		cartRepository.deleteById(cart.getCartId());
 		cartRepository.save(newCart);
-//		System.out.println(cart);
 		return order;
 	}
 

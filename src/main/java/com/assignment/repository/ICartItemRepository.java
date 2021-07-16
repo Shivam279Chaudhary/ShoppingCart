@@ -7,6 +7,5 @@ import com.assignment.model.CartItem;
 
 @Repository
 public interface ICartItemRepository extends CrudRepository<CartItem, Integer> {
-//	public void deleteById(int id);
 
 }

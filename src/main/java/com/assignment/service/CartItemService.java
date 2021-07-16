@@ -44,11 +44,10 @@ public class CartItemService {
 		return cartItem.get();
 	}
 
-	@Transactional
+//	@Transactional
 	public void deleteByCartItemId(int cartItemId) {
 		// TODO Auto-generated method stub
-		Optional<CartItem> cartItem = cartItemRepository.findById(cartItemId);
-		cartItemRepository.deleteById(cartItem.get().getCartItemId());
+		cartItemRepository.deleteById(cartItemId);
 	}
 
 }

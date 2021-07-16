@@ -29,16 +29,4 @@ public class CartItem {
 	@JoinColumn(name = "cart_id", nullable = false)
 	private Cart cart;
 
-	public void increaseQuantity() {
-		this.quantity++;
-	}
-
-	public void decreaseQuantity() {
-		this.quantity--;
-	}
-
-	public void removeItem() {
-		// logic
-	}
-
 }
